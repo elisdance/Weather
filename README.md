@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# Forecast App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies & Tools Used:
 
-## Available Scripts
+- Java Script
+- HTML
+- CSS
+- React
+- Tailwindcss
+- Iconscout
+- [Luxon](https://www.npmjs.com/package/luxon)
+- [Tostify](https://www.npmjs.com/package/react-toastify)
 
-In the project directory, you can run:
 
-### `npm start`
+## Description 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Expedite weather app is to make your regular acts more simple
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Clone my project to your desktop:
+   - Click “Code” and copy the given URL.
+   - Open "Terminal" and change the current working directory to the location for a cloned project.
+   - Type 
+   ```bash 
+   git clone {repository URL}
+   ```
+## Requirements 
+For development, you will need Node.js and  Gulp installed on your environement.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Node
+[Node](https://nodejs.org/en/) is really easy to install & now include [NPM](https://www.npmjs.com). You should be able to run the following command after the installation procedure below.
 
-### `npm run build`
+```bash 
+$ node --version
+v0.10.24
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+$ npm --version
+1.3.21
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Node installation on OS X
 
-### `npm run eject`
+You will need to use a Terminal. On OS X, you can find the default terminal in /Applications/Utilities/Terminal.app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Please install [Homebrew](https://brew.sh) if it's not already done with the following command.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash 
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
+If everything when fine, you should run
+```bash
+brew install node
+```
+#### Node installation on Linux
+``` bash
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+```
+#### Node installation on Windows
+Go on official [Node.js website](https://nodejs.org/en/) & grab the installer. Also, be sure to have git available in your PATH, npm might need it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Gulp 
+- Check for node, npm, and npx
+``` bash
+node --version
+npm --version
+npx --version
+```
+If they are not installed, follow the instructions [here](https://nodejs.org/en/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Install the gulp command line utility
+``` bash
+npm install gulp -g
+```
 
-## Learn More
+### Project Dependencies
+Install project dependencies
+```bash
+npm install 
+```
+  OR use this command to speed up installation
+```bash
+npm ci 
+```
+(about the differences between npm install and npm ci you can read [here](https://docs.npmjs.com/cli/v8/commands/npm-ci))
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Start the development environment 
+```bash 
+npm start
+```
+### Simple build for production
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### [Tailwindcss](https://tailwindcss.com/docs/installation)
+#### Tailwindcss with create react-app
 
-### Code Splitting
+Create your react project
+```bash
+npx create-react-app my-project
+cd my-project
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install Tailwind CSS
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-### Analyzing the Bundle Size
+Configure your template paths
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Add the paths to all of your template files in your tailwind.config.js file.
+```bash
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+Add the Tailwind directives to your CSS
 
-### Making a Progressive Web App
+Add the @tailwind directives for each of Tailwind’s layers to your ./src/index.css file.
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+Run your build process with npm run start
+```bash
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### [Iconscout](https://iconscout.com/unicons)
+You can easily install react-unicons using npm
+```bash
+npm install --save @iconscout/react-unicons
+```
+Or using yarn
+```bash
+yarn add @iconscout/react-unicons
+```
 
-### Advanced Configuration
+#### Use individual icons
+```bash
+import React from 'react';
+import UilReact from '@iconscout/react-unicons/icons/uil-react'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+const App = () => {
+  return <UilReact size="140" color="#61DAFB" />
+};
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
+```
+### 
